@@ -4,6 +4,24 @@ $(document).ready(function() {
 // This is an arry with starting buttons
 var no = ["Shaking head no","Not Today","Nope","Maybe","Nah"];
 
+
+function displayGif(){
+    var gifOutput = $(this).attr("data-name");
+    var queryURL ="http://api.giphy.com/v1/gifs/search?q="+gif+"&api_key=0anDkstfLhUnDoq0WlArC7SckFK8E9Ea&limit=5";
+// Ajax call
+$.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function(response) {
+      
+    var gifDiv = $("<div class = 'meme'>");
+
+  });
+
+}
+
+
+
 // this function renders buttons
 function renderButtons(){
     $("#gifButtons").empty();
@@ -19,18 +37,18 @@ function renderButtons(){
         $("#gifButtons").append(b);
     }
 }
- // This function handles events where a movie button is clicked
+ // This function turns input from form into a button
  $("#phrase").on("click", function(event) {
     event.preventDefault();
-    // This line grabs the input from the textbox
+
     var gif = $("#phrase-input").val().trim();
 
-    // Adding movie from the textbox to our array
-   no.push(gif);
+    no.push(gif);
 
     // Calling renderButtons which handles the processing of our movie array
     renderButtons();
   });
+
 
 
 
