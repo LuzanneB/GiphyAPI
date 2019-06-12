@@ -7,7 +7,7 @@ var no = ["Shaking head no","Not Today","Nope","Maybe","Nah"];
 
 function displayGif(){
     var gifOutput = $(this).attr("data-name");
-    var queryURL ="http://api.giphy.com/v1/gifs/search?q="+gifOutput+"&api_key=0anDkstfLhUnDoq0WlArC7SckFK8E9Ea&limit=5";
+    var queryURL ="https://api.giphy.com/v1/gifs/search?q="+gifOutput+"&api_key=0anDkstfLhUnDoq0WlArC7SckFK8E9Ea&limit=5";
 // Ajax call
 $.ajax({
     url: queryURL,
@@ -27,7 +27,7 @@ $.ajax({
       gifImage.attr("data-animate",response.data[i].images.fixed_height.url)
       gifImage.attr("data-state","still")
       gifDiv.append(gifImage);
-      $("#memeHolder").append(gifDiv);
+      $("#memeHolder").prepend(gifDiv);
     } 
   });
 }
