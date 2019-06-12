@@ -7,7 +7,7 @@ var no = ["Shaking head no","Not Today","Nope","Maybe","Nah"];
 
 function displayGif(){
     var gifOutput = $(this).attr("data-name");
-    var queryURL ="https://api.giphy.com/v1/gifs/search?q="+gifOutput+"&api_key=0anDkstfLhUnDoq0WlArC7SckFK8E9Ea&limit=5";
+    var queryURL ="https://api.giphy.com/v1/gifs/search?q="+gifOutput+"&api_key=0anDkstfLhUnDoq0WlArC7SckFK8E9Ea&limit=5&rating=g";
 // Ajax call
 $.ajax({
     url: queryURL,
