@@ -18,10 +18,10 @@ $.ajax({
     console.log(response.data);
 
     for(var i=0;i<5;i++){
-console.log(i)
 
       var gifDiv = $("<div class = 'meme'>"); 
       var gifImage = $("<img>");
+      gifImage.addClass("image float-left");
       gifImage.attr("src", response.data[i].images.fixed_height_still.url);
       gifImage.attr("data-still",response.data[i].images.fixed_height_still.url);
       gifImage.attr("data-animate",response.data[i].images.fixed_height.url)
@@ -32,18 +32,7 @@ console.log(i)
   });
 }
 
-// function changeState(){
-//   var state = $(this).attr("data-state");
-//   if (state === "still") {
-//     $(this).attr("src", $(this).attr("data-animate"));
-//     $(this).attr("data-state", "animate");
-//   } else {
-//     $(this).attr("src", $(this).attr("data-still"));
-//     $(this).attr("data-state", "still");
-//   }
-// };
 
-// }
 
 
 // this function renders buttons
@@ -76,6 +65,17 @@ function renderButtons(){
   });
 
 
+ function changeState(){
+  var state = $(this).attr("data-state");
+  if (state === "still") {
+    $(this).attr("src", $(this).attr("data-animate"));
+    $(this).attr("data-state", "animate");
+  } else {
+    $(this).attr("src", $(this).attr("data-still"));
+    $(this).attr("data-state", "still");
+  }
+};
+
 
 
 
@@ -86,7 +86,7 @@ function renderButtons(){
 renderButtons();
 
 $(document).on("click", "#gifBtn", displayGif);
-// $(document).on("click", ".meme", changeState);
+$(document).on("click", ".image", changeState);
 
 
 
